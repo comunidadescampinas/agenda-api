@@ -1,5 +1,6 @@
 import Koa from 'koa'
 import Router from 'koa-router'
+import cors from 'koa-cors'
 
 import { listarEventosTodasComunidades } from './lib'
 
@@ -13,6 +14,7 @@ router.get('/eventos', async (ctx, next) => {
 })
 
 app
+  .use(cors())
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(PORT)
