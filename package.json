@@ -25,7 +25,8 @@
   "dependencies": {
     "isomorphic-fetch": "^2.2.1",
     "koa": "^2.3.0",
-    "koa-router": "^7.2.1"
+    "koa-router": "^7.2.1",
+    "normalizr": "^3.2.3"
   },
   "devDependencies": {
     "babel-core": "^6.26.0",
