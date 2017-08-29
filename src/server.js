@@ -10,7 +10,7 @@ const app = new Koa()
 const router = new Router()
 
 router.get('/eventos', async (ctx, next) => {
-  ctx.body = await listarEventosTodasComunidades('Nodeschool-Campinas')
+  ctx.body = await listarEventosTodasComunidades()
 })
 
 app
