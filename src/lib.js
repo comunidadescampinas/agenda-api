@@ -48,9 +48,6 @@ export function listarEventosTodasComunidades () {
   return Promise.all(todasComunidades).then(res => {
     return res.reduce((todos, atual, empty) => {
       return {
-        console.log(mergeEntities('comunidades', todos, atual));
-        console.log(mergeEntities('locais', todos, atual));
-        console.log(mergeEntities('eventos', todos, atual));
         entities: {
           comunidades: mergeEntities('comunidades', todos, atual),
           locais: mergeEntities('locais', todos, atual),
