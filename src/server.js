@@ -1,6 +1,6 @@
 import Koa from 'koa'
 import Router from 'koa-router'
-import cors from 'koa-cors'
+import cors from 'kcors'
 
 import { listarEventosTodasComunidades } from './lib'
 
