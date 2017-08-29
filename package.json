@@ -1,0 +1,24 @@
+{
+  "name": "comunidades-campinas-api",
+  "version": "1.0.0",
+  "description": "API para agregação de calendários das comunidades de Campinas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fmoliveira/comunidades-campinas-api.git"
+  },
+  "keywords": [
+    "comunidades",
+    "campinas",
+    "meetups"
+  ],
+  "author": "Filipe Oliveira <contato@fmoliveira.com.br>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fmoliveira/comunidades-campinas-api/issues"
+  },
+  "homepage": "https://github.com/fmoliveira/comunidades-campinas-api#readme"
+}
