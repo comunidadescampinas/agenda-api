@@ -17,5 +17,9 @@ Para executar a API você deve definir as seguintes variáveis de ambiente prime
 * REDIS_URL: connection string para a instância de Redis usada para cache
 * REDIS_AUTH: senha de conexão à instância de Redis usada para cache
 
-Depois disto, basta executar `npm install` e `npm start`.
-Caso esteja utilizando docker, basta rodar `docker-compose up` na raiz do projeto. Por default o servidor de desenvolvimento irá subir em `http://localhost:3001`. A stack do projeto já irá suprir as dependências e subir serviços como Redis. Dentro do `docker-compose.yml` informe sua API do Meetup na key `MEETUP_API_KEY=xxxxxxxxxxxxxxx`.
+Depois disto, basta executar `npm run dev`.
+
+Caso esteja utilizando docker, basta rodar `docker-compose up` na raiz do projeto. 
+Por default o servidor de desenvolvimento irá subir em `http://localhost:3001`. 
+A stack do projeto já irá suprir as dependências e subir serviços como `Redis`. 
+Dentro do `docker-compose.yml` informe sua API do Meetup na key `MEETUP_API_KEY=xxxxxxxxxxxxxxx`.
