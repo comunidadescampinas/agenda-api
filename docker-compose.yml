@@ -1,0 +1,20 @@
+version: "3"
+services: 
+  api: 
+    build: . 
+    volumes:
+      - "./:/app"
+    ports: 
+      - "3000:3000"
+
+    environment:
+      - PORT=3000
+      - MEETUP_API_KEY=123
+      - REDIS_URL=http://redis:6379
+      - REDIS_AUTH=123
+
+  redis: 
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass 123
