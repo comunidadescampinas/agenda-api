@@ -8,3 +8,11 @@ O frontend está no repositório [agenda-front](https://github.com/comunidadesca
 
 [travis-url]: https://travis-ci.org/comunidadescampinas/agenda-api
 [travis-image]: https://api.travis-ci.org/comunidadescampinas/agenda-api.svg
+
+## Colaborando
+
+Para executar a API você deve definir as seguintes variáveis de ambiente primeiro:
+
+* MEETUP_API_KEY: a sua API key do Meetup.com
+
+Depois disto, basta executar `npm install` e `npm start`.
