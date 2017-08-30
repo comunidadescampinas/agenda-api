@@ -5,10 +5,9 @@ services:
     volumes:
       - "./:/app"
     ports: 
-      - "3000:3000"
+      - "3001:3001"
 
     environment:
-      - PORT=3000
       - MEETUP_API_KEY=123
       - REDIS_URL=http://redis:6379
       - REDIS_AUTH=123
