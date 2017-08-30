@@ -31,6 +31,13 @@ function mergeEntities (entityName, acc, n) {
 export function listarEventos (comunidade) {
   const url = getUrlEventos(comunidade)
   return fetch(url)
+    .then(res => {
+      if (res.status === 200) {
+        return res
+      } else {
+        throw new Error(`${res.status} ${res.statusText}`)
+      }
+    })
     .then(mapToJson)
     .then(normalizeEvents)
 }
@@ -58,5 +65,7 @@ export function listarEventosTodasComunidades () {
         result: todos.result.concat(atual.result)
       }
     })
+  }, err => {
+    throw new Error(err)
   })
 }
