@@ -28,7 +28,7 @@ function mergeEntities (entityName, acc, n) {
   return Object.assign({}, a, b)
 }
 
-export function listarEventos (comunidade) {
+function listarEventos (comunidade) {
   const url = getUrlEventos(comunidade)
   return fetch(url)
     .then(res => {
