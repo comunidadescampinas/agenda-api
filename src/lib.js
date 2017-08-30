@@ -1,6 +1,8 @@
 import 'isomorphic-fetch'
 import { normalize, schema } from 'normalizr'
 
+import { getCache, setCache } from './cache'
+
 import comunidades from '../data/comunidades.json'
 
 const BASE_URL = 'https://api.meetup.com'
@@ -29,8 +31,11 @@ function mergeEntities (entityName, acc, n) {
 }
 
 function listarEventos (comunidade) {
-  const url = getUrlEventos(comunidade)
-  return fetch(url)
+  return getCache(comunidade).then(cached => {
+    return cached
+  }, () => {
+    const url = getUrlEventos(comunidade)
+    return fetch(url)
     .then(res => {
       if (res.status === 200) {
         return res
@@ -40,6 +45,8 @@ function listarEventos (comunidade) {
     })
     .then(mapToJson)
     .then(normalizeEvents)
+    .then(res => setCache(comunidade, res))
+  })
 }
 
 export function listarEventosTodasComunidades () {

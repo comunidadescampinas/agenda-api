@@ -31,6 +31,7 @@
     "kcors": "^2.2.1",
     "koa": "^2.3.0",
     "koa-router": "^7.2.1",
-    "normalizr": "^3.2.3"
+    "normalizr": "^3.2.3",
+    "redis": "^2.8.0"
   }
 }
