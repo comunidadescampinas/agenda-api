@@ -46,7 +46,9 @@ export function listarEventosTodasComunidades () {
   }
   const todasComunidades = comunidades.map(listarEventos)
   return Promise.all(todasComunidades).then(res => {
-    return res.reduce((todos, atual, empty) => {
+    return res
+    .filter(i => !!i)
+    .reduce((todos, atual, empty) => {
       return {
         entities: {
           comunidades: mergeEntities('comunidades', todos, atual),
