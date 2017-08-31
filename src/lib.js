@@ -42,30 +42,18 @@ const listarEventos = (comunidade) =>
         .then(res => setCache(comunidade, res))
     )
 
-export function listarEventosTodasComunidades () {
-  const empty = {
-    entities: {
-      comunidades: {},
-      locais: {},
-      eventos: {}
-    },
-    result: []
-  }
-  const todasComunidades = comunidades.map(listarEventos)
-  return Promise.all(todasComunidades).then(res => {
-    return res
-    .filter(i => !!i)
-    .reduce((todos, atual, empty) => {
-      return {
-        entities: {
-          comunidades: mergeEntities('comunidades', todos, atual),
-          locais: mergeEntities('locais', todos, atual),
-          eventos: mergeEntities('eventos', todos, atual)
-        },
-        result: todos.result.concat(atual.result)
-      }
-    })
-  }, err => {
-    throw new Error(err)
-  })
-}
+export const listarEventosTodasComunidades = () =>
+  Promise.all(comunidades.map(listarEventos))
+    .then(res =>
+      res
+        .filter(i => !!i)
+        .reduce( (todos, atual) => ({
+          entities: {
+            comunidades: mergeEntities('comunidades', todos, atual),
+            locais: mergeEntities('locais', todos, atual),
+            eventos: mergeEntities('eventos', todos, atual)
+          },
+          result: todos.result.concat(atual.result)
+        }) )
+    )
+    .catch( err => { throw new Error(err) })
