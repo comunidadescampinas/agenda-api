@@ -29,24 +29,18 @@ function mergeEntities (entityName, acc, n) {
   return Object.assign({}, a, b)
 }
 
-function listarEventos (comunidade) {
-  return getCache(comunidade).then(cached => {
-    return cached
-  }, () => {
-    const url = getUrlEventos(comunidade)
-    return fetch(url)
-    .then(res => {
-      if (res.status === 200) {
-        return res
-      } else {
-        throw new Error(`${res.status} ${res.statusText}`)
-      }
-    })
-    .then(mapToJson)
-    .then(normalizeEvents)
-    .then(res => setCache(comunidade, res))
-  })
-}
+const listarEventos = (comunidade) =>
+  getCache(comunidade)
+    .catch( () =>
+      fetch(getUrlEventos(comunidade))
+        .then( res => (res.status === 200) ?
+          res
+          : Promise.reject(`${res.status} ${res.statusText}`)
+        )
+        .then(mapToJson)
+        .then(normalizeEvents)
+        .then(res => setCache(comunidade, res))
+    )
 
 export function listarEventosTodasComunidades () {
   const empty = {
