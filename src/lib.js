@@ -20,9 +20,8 @@ const event = new schema.Entity('eventos', {
 const mapToJson = res => res.json()
 const normalizeEvents = res => normalize(res, [event])
 
-function getUrlEventos (comunidade) {
-  return `${BASE_URL}/${comunidade}/events?key=${API_KEY}`
-}
+const getUrlEventos = comunidade =>
+  `${BASE_URL}/${comunidade}/events?key=${API_KEY}`
 
 function mergeEntities (entityName, acc, n) {
   const a = acc ? acc.entities[entityName] : {}
