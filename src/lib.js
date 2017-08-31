@@ -23,11 +23,12 @@ const normalizeEvents = res => normalize(res, [event])
 const getUrlEventos = comunidade =>
   `${BASE_URL}/${comunidade}/events?key=${API_KEY}`
 
-function mergeEntities (entityName, acc, n) {
-  const a = acc ? acc.entities[entityName] : {}
-  const b = n ? n.entities[entityName] : {}
-  return Object.assign({}, a, b)
-}
+const mergeEntities = (entityName, accumulator, item) =>
+  Object.assign(
+    {},
+    accumulator[entityName] || {},
+    item[entityName] || {}
+  )
 
 const listarEventos = (comunidade) =>
   getCache(comunidade)
@@ -49,9 +50,9 @@ export const listarEventosTodasComunidades = () =>
         .filter(i => !!i)
         .reduce( (todos, atual) => ({
           entities: {
-            comunidades: mergeEntities('comunidades', todos, atual),
-            locais: mergeEntities('locais', todos, atual),
-            eventos: mergeEntities('eventos', todos, atual)
+            comunidades: mergeEntities('comunidades', todos.entities, atual.entities),
+            locais: mergeEntities('locais', todos.entities, atual.entities),
+            eventos: mergeEntities('eventos', todos.entities, atual.entities)
           },
           result: todos.result.concat(atual.result)
         }) )
