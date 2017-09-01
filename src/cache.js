@@ -14,6 +14,7 @@ const getFromRedis = promisify(client.get).bind(client)
 const getCache = (key) =>
   getFromRedis(key)
     .then(JSON.parse)
+    .then( (response) => response ? response : Promise.reject() )
 
 const setCache = (key, value) => {
   client.set(key, JSON.stringify(value), 'EX', TTL)
