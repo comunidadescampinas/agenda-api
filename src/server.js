@@ -17,7 +17,7 @@ const wrapResponse = (fn) =>
     }) )
     .catch( (error) => ({
       status: 'error',
-      message: err.message
+      message: error.message
     }) )
 
 router.get('/eventos', async (ctx, next) => {
