@@ -1,0 +1,14 @@
+version: "3"
+services: 
+  api: 
+    build: . 
+    volumes:
+      - "./:/app"
+    ports: 
+      - "3001:3001"
+      
+  redis: 
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass 123
