@@ -8,9 +8,9 @@ O frontend está no repositório [agenda-front](https://github.com/comunidadesca
 
 ## Como inserir sua comunidade na lista?
 
-Faça um git pull request com o arquivo comunidades.json alterado (https://github.com/comunidadescampinas/agenda-api/blob/master/data/comunidades.json) listando o nome de sua comunidade no Meetup.com.
+Faça um git pull request com o arquivo `data/comunidades.json` alterado (https://github.com/comunidadescampinas/agenda-api/blob/master/data/comunidades.json) listando o nome de sua comunidade no Meetup.com.
  
-Dúvidas? Pergunte diretamente ao `@victorperin` (https://github.com/victorperin)
+Dúvidas? Pergunte diretamente ao `@victorperin` (https://github.com/victorperin).
 
 ## Como elaborar com o código desta API?
 
