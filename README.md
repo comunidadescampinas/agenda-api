@@ -2,6 +2,9 @@
 
 [![Travis Build][travis-image]][travis-url]
 
+[travis-url]: https://travis-ci.org/comunidadescampinas/agenda-api
+[travis-image]: https://api.travis-ci.org/comunidadescampinas/agenda-api.svg
+
 API para agregação de calendários das comunidades de Campinas, online em [agendatechrmc.herokuapp.com/eventos](https://agendatechrmc.herokuapp.com/eventos).
 
 O frontend está no repositório [agenda-front](https://github.com/comunidadescampinas/agenda-front) e está publicado no endereço [agendatechrmc.surge.sh](https://agendatechrmc.surge.sh/).
@@ -26,6 +29,3 @@ Caso queira subir a stack em `Docker`, basta rodar do comando `docker-compose up
 Por default o servidor de desenvolvimento irá subir em `http://localhost:3001`. 
 A stack do projeto já irá suprir as dependências e subir serviços como `Redis`. 
 Dentro do `docker-compose.yml` informe sua API do Meetup na key `MEETUP_API_KEY=xxxxxxxxxxxxxxx`.
-
-[travis-url]: https://travis-ci.org/comunidadescampinas/agenda-api
-[travis-image]: https://api.travis-ci.org/comunidadescampinas/agenda-api.svg
