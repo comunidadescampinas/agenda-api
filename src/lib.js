@@ -17,8 +17,8 @@ const event = new schema.Entity('eventos', {
   venue: venue
 })
 
-const mapToJson = res => res.json()
-const normalizeEvents = res => normalize(res, [event])
+const mapToJson = res => res && res.json()
+const normalizeEvents = res => res && normalize(res, [event])
 
 const getUrlEventos = comunidade =>
   `${BASE_URL}/${comunidade}/events?key=${API_KEY}`
@@ -38,14 +38,10 @@ const listarEventos = (comunidade) =>
           if (res.status === 200) {
             return res
           } else {
-            console.error(`Erro ${res.status} ao tentar consultar eventos da comunidade '${comunidade}!`)
-            return Promise.reject(`${res.status} ${res.statusText}`)
+            console.warn(`Erro ${res.status} ao tentar consultar eventos da comunidade '${comunidade}!`)
+            return null
           }
         })
-        .then( res => (res.status === 200) ?
-          res
-          : Promise.reject(`${res.status} ${res.statusText}`)
-        )
         .then(mapToJson)
         .then(normalizeEvents)
         .then(res => setCache(comunidade, res))
