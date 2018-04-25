@@ -34,6 +34,14 @@ const listarEventos = (comunidade) =>
   getCache(comunidade)
     .catch( () =>
       fetch(getUrlEventos(comunidade))
+        .then(res => {
+          if (res.status === 200) {
+            return res
+          } else {
+            console.error(`Erro ${res.status} ao tentar consultar eventos da comunidade '${comunidade}!`)
+            return Promise.reject(`${res.status} ${res.statusText}`)
+          }
+        })
         .then( res => (res.status === 200) ?
           res
           : Promise.reject(`${res.status} ${res.statusText}`)
