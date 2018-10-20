@@ -15,7 +15,7 @@ Faça um git pull request com o arquivo `data/comunidades.json` alterado (https:
  
 Dúvidas? Pergunte diretamente ao `@victorperin` (https://github.com/victorperin).
 
-## Como elaborar com o código desta API?
+## Como colaborar com o código desta API?
 
 Para executar a API você deve definir as seguintes variáveis de ambiente primeiro:
 
