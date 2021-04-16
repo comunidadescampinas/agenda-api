@@ -1,3 +1,5 @@
+> Projeto descontinuado pois muitas comunidades saíram do Meetup após ele se tornar pago para organizadores.
+
 # Comunidades Campinas API
 
 [![Travis Build][travis-image]][travis-url]
